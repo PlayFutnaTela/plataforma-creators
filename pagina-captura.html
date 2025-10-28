@@ -67,6 +67,16 @@
             background: #fedb01 !important;
             color: #fff !important;
         }
+        /* Efeito de elevação nos cards */
+        .card-learn {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-learn:hover {
+            transform: translateY(-8px);
+        }
+        .card-learn:hover > div {
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2) !important;
+        }
         </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
@@ -88,58 +98,59 @@
             </div>
             <div style="flex: 1 1 400px; min-width: 320px; padding: 0; margin: 32px 0; max-width: none; background: none; box-shadow: none; border-radius: 0;">
                 <div class="glass-card" style="width: 571px; max-width: 100%;">
-                    <h2 style="color: #fff; font-size: 2rem; font-weight: bold; margin-bottom: 1.5em; text-align: center; line-height: 1.2; font-family: 'Ethnocentric', Arial, sans-serif;">DÊ OS PRIMEIROS PASSOS<br>PARA COMEÇAR DO ZERO A<br><span style="color: #7bb6ff;">CRIAR UMA PRESENÇA<br>DIGITAL SÓLIDA</span></h2>
+                    <h2 style="color: #fff; font-size: 2rem; font-weight: bold; margin-bottom: 1.5em; text-align: center; line-height: 1.2; font-family: 'Ethnocentric', Arial, sans-serif;">DÊ OS PRIMEIROS PASSOS<br>PARA COMEÇAR DO ZERO A<br><span style="color: #fddb00;">CRIAR UMA PRESENÇA<br>DIGITAL SÓLIDA</span></h2>
                     <form>
                         <input type="text" name="nome" placeholder="* Nome" required style="width: 100%; padding: 14px; margin-bottom: 16px; border-radius: 6px; border: none; font-size: 1.1rem;">
                         <input type="email" name="email" placeholder="* E-mail" required style="width: 100%; padding: 14px; margin-bottom: 16px; border-radius: 6px; border: none; font-size: 1.1rem;">
                         <input type="tel" name="telefone" placeholder="* Telefone" required style="width: 100%; padding: 14px; margin-bottom: 24px; border-radius: 6px; border: none; font-size: 1.1rem;">
                         <button type="submit" style="width: 100%; border: none; padding: 16px; border-radius: 6px; font-size: 1.2rem; font-weight: bold; cursor: pointer;">Enviar agora mesmo</button>
                     </form>
-                    <p style="color: #fff; font-size: 0.85rem; margin-top: 16px; text-align: center;">Ao enviar, você concorda com nossos <a href="#" id="btn-termos" style="color: #7bb6ff; text-decoration: underline;">Termos de Uso</a> e <a href="#" id="btn-privacidade" style="color: #7bb6ff; text-decoration: underline;">Política de Privacidade</a>.</p>
+                    <p style="color: #fff; font-size: 0.85rem; margin-top: 16px; text-align: center;">Ao enviar, você concorda com nossos <a href="#" id="btn-termos" style="color: #fddb00; text-decoration: underline;">Termos de Uso</a> e <a href="#" id="btn-privacidade" style="color: #fddb00; text-decoration: underline;">Política de Privacidade</a>.</p>
                 </div>
             </div>
         </div>
     </section>
 
+        <!-- Box 2: O que você vai aprender (estilo cards) -->
+        <section style="width: 100vw; margin-left: calc(-50vw + 50%); margin: 0; padding: 0; background: #000; color: #fff; min-height: 63.75vh; display: flex; align-items: center; justify-content: center; border-radius: 0;">
+            <div style="max-width: 1200px; margin: 0; padding: 40px 20px; width: 100%;">
+                <h2 style="color: #27ae60; font-size: 1.6rem; margin-bottom: 1.5em; text-transform: uppercase; letter-spacing: .6px; text-align: center;">Durante o workshop você vai aprender</h2>
+
+                <div style="display:flex; gap:24px; flex-wrap:wrap; justify-content:space-between; align-items:stretch;">
+                    <!-- Card 1 -->
+                    <div class="card-learn" style="flex: 1 1 300px; min-width: 260px; position:relative;">
+                        <div style="position:absolute; left:50%; top:0; transform:translate(-50%,-50%); width:84px; height:84px; border-radius:50%; background:#fddb00; border:10px solid #000; display:flex; align-items:center; justify-content:center; z-index:2;">
+                            <i class="fa-solid fa-bolt" style="font-size:28px; color:#000;"></i>
+                        </div>
+                        <div style="background:#e3e3e3; border-radius:12px; padding:36px 20px 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-height:140px; display:flex; align-items:center; justify-content:center; text-align:center;">
+                            <p style="color:#222; font-size:1rem; line-height:1.4; margin:0; font-weight:700;">O segredo para chamar a atenção das marcas, mesmo que você ainda seja pequeno.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card-learn" style="flex: 1 1 300px; min-width: 260px; position:relative;">
+                        <div style="position:absolute; left:50%; top:0; transform:translate(-50%,-50%); width:84px; height:84px; border-radius:50%; background:#fddb00; border:10px solid #000; display:flex; align-items:center; justify-content:center; z-index:2;">
+                            <i class="fa-solid fa-trophy" style="font-size:28px; color:#000;"></i>
+                        </div>
+                        <div style="background:#e3e3e3; border-radius:12px; padding:36px 20px 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-height:140px; display:flex; align-items:center; justify-content:center; text-align:center;">
+                            <p style="color:#222; font-size:1rem; line-height:1.4; margin:0; font-weight:700;">Como organizar campanhas, contratos e pagamentos sem estresse.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card-learn" style="flex: 1 1 300px; min-width: 260px; position:relative;">
+                        <div style="position:absolute; left:50%; top:0; transform:translate(-50%,-50%); width:84px; height:84px; border-radius:50%; background:#fddb00; border:10px solid #000; display:flex; align-items:center; justify-content:center; z-index:2;">
+                            <i class="fa-solid fa-flag" style="font-size:28px; color:#000;"></i>
+                        </div>
+                        <div style="background:#e3e3e3; border-radius:12px; padding:36px 20px 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-height:140px; display:flex; align-items:center; justify-content:center; text-align:center;">
+                            <p style="color:#222; font-size:1rem; line-height:1.4; margin:0; font-weight:700;">Estratégias para ser reconhecido e valorizado como parceiro profissional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     <div class="container">
-        <!-- Box 2: O que você vai aprender -->
-        <section style="margin: 48px 0 32px 0; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px;">
-            <div style="flex: 1 1 350px; min-width: 300px;">
-                <h2 style="color: #27ae60; font-size: 1.5rem; margin-bottom: 1em;">Veja o que você vai aprender no Notado Pelas Marcas</h2>
-                <div style="background: #f8f8f8; border-radius: 10px; padding: 1.5em 1em; box-shadow: 0 1px 8px #0001;">
-                    <ul style="list-style: disc inside; font-size: 1.1rem; color: #333;">
-                        <li>O segredo para chamar a atenção das marcas, mesmo que você ainda seja pequeno.</li>
-                        <li>Como organizar campanhas, contratos e pagamentos sem estresse.</li>
-                        <li>Estratégias para ser reconhecido e valorizado como parceiro profissional.</li>
-                    </ul>
-                </div>
-            </div>
-            <div style="flex: 1 1 300px; min-width: 250px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
-                <img src="https://via.placeholder.com/250x180?text=Mockup+PC" alt="Mockup PC" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 90%; max-width: 250px;">
-                <img src="https://via.placeholder.com/120x220?text=Mockup+Celular" alt="Mockup Celular" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 60%; max-width: 120px;">
-                <img src="https://via.placeholder.com/180x140?text=Mockup+Tablet" alt="Mockup Tablet" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 80%; max-width: 180px;">
-            </div>
-        </section>
-
-                <!-- Box 2: O que você vai aprender -->
-        <section style="margin: 48px 0 32px 0; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px;">
-            <div style="flex: 1 1 350px; min-width: 300px;">
-                <h2 style="color: #27ae60; font-size: 1.5rem; margin-bottom: 1em;">Veja o que você vai aprender no Notado Pelas Marcas</h2>
-                <div style="background: #f8f8f8; border-radius: 10px; padding: 1.5em 1em; box-shadow: 0 1px 8px #0001;">
-                    <ul style="list-style: disc inside; font-size: 1.1rem; color: #333;">
-                        <li>O segredo para chamar a atenção das marcas, mesmo que você ainda seja pequeno.</li>
-                        <li>Como organizar campanhas, contratos e pagamentos sem estresse.</li>
-                        <li>Estratégias para ser reconhecido e valorizado como parceiro profissional.</li>
-                    </ul>
-                </div>
-            </div>
-            <div style="flex: 1 1 300px; min-width: 250px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
-                <img src="https://via.placeholder.com/250x180?text=Mockup+PC" alt="Mockup PC" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 90%; max-width: 250px;">
-                <img src="https://via.placeholder.com/120x220?text=Mockup+Celular" alt="Mockup Celular" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 60%; max-width: 120px;">
-                <img src="https://via.placeholder.com/180x140?text=Mockup+Tablet" alt="Mockup Tablet" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 80%; max-width: 180px;">
-            </div>
-        </section>
-
         <!-- Box 3: O que você recebe -->
         <section style="margin: 32px 0;">
             <h2 style="color: #27ae60; font-size: 1.4rem; margin-bottom: 1em;">O que você recebe ao participar do evento</h2>
@@ -168,7 +179,7 @@
             <div style="flex: 1 1 0; min-width: 220px; text-align: center; border-right: 1px solid #222; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-circle-exclamation"></i></span>
                 <strong style="display:block; color:#fff; margin-bottom:4px;">Precisa de ajuda?</strong>
-                <span style="color:#bbb; font-size:1rem;">Envie um e-mail para<br><a href="mailto:ajuda@unsinkable.com.br" style="color:#7bb6ff; text-decoration: underline;">ajuda@unsinkable.com.br</a></span>
+                <span style="color:#bbb; font-size:1rem;">Envie um e-mail para<br><a href="mailto:ajuda@unsinkable.com.br" style="color:#fddb00; text-decoration: underline;">ajuda@unsinkable.com.br</a></span>
             </div>
             <div style="flex: 1 1 0; min-width: 220px; text-align: center; border-right: 1px solid #222; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-building"></i></span>
@@ -178,8 +189,8 @@
             <div style="flex: 1 1 0; min-width: 220px; text-align: center; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-circle-plus"></i></span>
                 <strong style="display:block; color:#fff; margin-bottom:4px;">Contato</strong>
-                <a href="#" id="btn-termos" style="color: #7bb6ff; text-decoration: underline; display:block;">Termos de Uso</a>
-                <a href="#" id="btn-privacidade" style="color: #7bb6ff; text-decoration: underline; display:block;">Política de Privacidade</a>
+                <a href="#" id="btn-termos" style="color: #fddb00; text-decoration: underline; display:block;">Termos de Uso</a>
+                <a href="#" id="btn-privacidade" style="color: #fddb00; text-decoration: underline; display:block;">Política de Privacidade</a>
             </div>
         </div>
         <div id="modal-termos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; overflow:auto;">
