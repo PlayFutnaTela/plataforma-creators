@@ -1,0 +1,30 @@
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos temporários do Office
+~$*
+
+# Arquivos compactados
+*.zip
+*.rar
+*.7z
+
+# Node modules (se usar Node.js)
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
