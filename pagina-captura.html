@@ -196,19 +196,19 @@
 
                     <!-- Carrossel -->
                     <div class="carousel-container" style="flex: 0 0 auto; width: 100%; max-width: 650px; position: relative;">
-                        <div class="carousel-wrapper" style="width: 100%; margin: 0 auto; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12); aspect-ratio: 16/9;">
-                            <div class="carousel-items" style="display: flex; transition: transform 0.3s ease; width: 100%; height: 100%; background: #f0f0f0;">
-                                <div class="carousel-item" style="min-width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #f5f5f5;">
-                                    <img src="sprint1.jpeg" alt="Sprint 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <div class="carousel-wrapper" style="width: 100%; margin: 0 auto; background: transparent; border-radius: 12px; overflow: hidden; box-shadow: none; aspect-ratio: 16/9; position: relative;">
+                            <div class="carousel-items" style="display: flex; transition: transform 0.5s ease-in-out; width: 100%; height: 100%; background: transparent;">
+                                <div class="carousel-item" style="min-width: 100%; width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: transparent; height: 100%;">
+                                    <img class="carousel-image" src="sprint1.jpeg" alt="Sprint 1" onclick="openImageModal(this.src)" style="max-width: 95%; max-height: 95%; object-fit: contain; display: block; cursor: pointer;">
                                 </div>
-                                <div class="carousel-item" style="min-width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #f5f5f5;">
-                                    <img src="sprint2.jpeg" alt="Sprint 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                <div class="carousel-item" style="min-width: 100%; width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: transparent; height: 100%;">
+                                    <img class="carousel-image" src="sprint2.jpeg" alt="Sprint 2" onclick="openImageModal(this.src)" style="max-width: 95%; max-height: 95%; object-fit: contain; display: block; cursor: pointer;">
                                 </div>
-                                <div class="carousel-item" style="min-width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #f5f5f5;">
-                                    <img src="sprint3.jpeg" alt="Sprint 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                <div class="carousel-item" style="min-width: 100%; width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: transparent; height: 100%;">
+                                    <img class="carousel-image" src="sprint3.jpeg" alt="Sprint 3" onclick="openImageModal(this.src)" style="max-width: 95%; max-height: 95%; object-fit: contain; display: block; cursor: pointer;">
                                 </div>
-                                <div class="carousel-item" style="min-width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #f5f5f5;">
-                                    <img src="sprint4.jpeg" alt="Sprint 4" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                <div class="carousel-item" style="min-width: 100%; width: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: transparent; height: 100%;">
+                                    <img class="carousel-image" src="sprint4.jpeg" alt="Sprint 4" onclick="openImageModal(this.src)" style="max-width: 95%; max-height: 95%; object-fit: contain; display: block; cursor: pointer;">
                                 </div>
                             </div>
                         </div>
@@ -333,8 +333,16 @@
         </div>
     </footer>
 
-    <!-- Script do cronômetro -->
+    <!-- Modal para visualizar imagem em tamanho maior -->
+    <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95); z-index: 10000; overflow: auto; padding: 20px;">
+        <div style="position: relative; max-width: 90%; max-height: 90vh; margin: 5vh auto; display: flex; align-items: center; justify-content: center;">
+            <button onclick="closeImageModal()" style="position: absolute; top: -50px; right: 0; background: #fddb00; color: #000; border: none; border-radius: 4px; padding: 8px 16px; font-weight: bold; cursor: pointer; font-size: 1rem;">✕ Fechar</button>
+            <img id="modalImage" src="" alt="Imagem em tamanho maior" style="max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+        </div>
+    </div>
+
     <script>
+
     // Modal Termos e Privacidade
     document.getElementById('btn-termos').onclick = function(e) {
         e.preventDefault();
@@ -363,37 +371,93 @@
     setInterval(atualizarCronometro, 1000);
     atualizarCronometro();
     
-    // Carrossel de Mockups
-    let currentSlide = 0;
-    const totalSlides = 4;
+    // Funções do Modal de Imagem
+    function openImageModal(imageSrc) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = imageSrc;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
     
-    function updateCarousel() {
+    function closeImageModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Fechar modal ao clicar fora da imagem
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeImageModal();
+        }
+    });
+    
+    // Fechar modal ao pressionar ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeImageModal();
+        }
+    });
+    
+    // Carrossel de Imagens
+    let currentSlideIndex = 0;
+    const totalSlides = 4;
+    const slideWidth = 100;
+    
+    function showSlide(index) {
         const carouselItems = document.querySelector('.carousel-items');
-        carouselItems.style.transform = `translateX(-${currentSlide * 100}%)`;
+        const indicators = document.querySelectorAll('.indicator');
+        
+        if (!carouselItems) return;
+        
+        // Validar índice
+        if (index >= totalSlides) {
+            currentSlideIndex = 0;
+        } else if (index < 0) {
+            currentSlideIndex = totalSlides - 1;
+        } else {
+            currentSlideIndex = index;
+        }
+        
+        // Deslocar carrossel
+        const translateValue = currentSlideIndex * slideWidth;
+        carouselItems.style.transform = `translateX(-${translateValue}%)`;
         
         // Atualizar indicadores
-        document.querySelectorAll('.indicator').forEach((indicator, index) => {
-            if (index === currentSlide) {
+        indicators.forEach((indicator, idx) => {
+            if (idx === currentSlideIndex) {
                 indicator.style.background = '#fddb00';
             } else {
-                indicator.style.background = '#999';
+                indicator.style.background = '#bbb';
             }
         });
     }
     
     function carouselNext() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
+        showSlide(currentSlideIndex + 1);
     }
     
     function carouselPrev() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateCarousel();
+        showSlide(currentSlideIndex - 1);
     }
     
     function carouselGoTo(index) {
-        currentSlide = index;
-        updateCarousel();
+        showSlide(index);
+    }
+    
+    // Inicializar carrossel
+    window.addEventListener('load', function() {
+        showSlide(0);
+    });
+    
+    // Fallback em caso de carregamento rápido
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(0);
+        });
+    } else {
+        showSlide(0);
     }
     </script>
 </body>
