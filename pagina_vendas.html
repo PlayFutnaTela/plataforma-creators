@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Creator - Plataforma para Creators</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .top-line {
+            background-color: #2ecc71;
+            height: 4px;
+            width: 100%;
+        }
+
+        .timer {
+            background: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .promise-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: #ffffff;
+        }
+
+        .promise-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .promise-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-section {
+            padding: 3rem 1rem;
+            background: #ffffff;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cta-section {
+            background: #f8f9fa;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: #2ecc71;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background: #27ae60;
+            transform: scale(1.05);
+        }
+
+        .guarantee-section {
+            padding: 2rem 1rem;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .guarantee {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .promise-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+    <div class="timer">
+        <span id="countdown">Oferta válida até 16/10 às 23h59</span>
+    </div>
+
+    <section class="promise-section">
+        <h1>INSCRIÇÕES PARA O MEU CREATOR – A plataforma que ajuda creators a serem notados por marcas, com gestão completa de campanhas, contratos e pagamentos.</h1>
+        <p>Se você quer ser notado pelas marcas, receber pagamentos no prazo e focar em criar conteúdo, essa é a sua chance. Inscreva-se gratuitamente!</p>
+    </section>
+
+    <section class="video-section">
+        <h2>Assista ao Vídeo de Vendas</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/seu-video-de-venda" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <button class="cta-button">INSCRIÇÃO GRATUITA AGORA</button>
+    </section>
+
+    <section class="guarantee-section">
+        <div class="guarantee">
+            Garantia Incondicional
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Meu Creator. Todos os direitos reservados.</p>
+        <p>Contato: contato@meucreator.com.br</p>
+    </footer>
+
+    <script>
+        // Script para o temporizador (funcionalidade de contagem regressiva)
+        function updateCountdown() {
+            const targetDate = new Date('October 17, 2023 00:00:00').getTime(); // Data-alvo (domingo às 00h)
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = 
+                    `Contagem regressiva: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                document.getElementById('countdown').innerHTML = 'OFERTA ENCERRADA';
+            }
+        }
+
+        // Atualiza o temporizador a cada segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Executa imediatamente ao carregar a página
+    </script>
+</body>
+</html>

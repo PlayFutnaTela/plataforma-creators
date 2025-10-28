@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Ethnocentric&display=swap" rel="stylesheet">
+        <style>
+        h1, h2 {
+            font-family: 'Ethnocentric', Arial, sans-serif !important;
+        }
+        h3, h4, h5, p {
+            font-family: 'Chakra Petch', Arial, sans-serif !important;
+        }
+        .glass-card {
+            width: 408px;
+            min-height: 420px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 0 32px 16px rgba(255, 255, 255, 0.16);
+            position: relative;
+            overflow: hidden;
+            padding: 40px 32px;
+            margin: 32px 0;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        }
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.8), transparent, rgba(255,255,255,0.3));
+        }
+        </style>
+        <style>
+        .glass-card button[type="submit"] {
+            background: #fedb01 !important;
+            color: #000 !important;
+            font-family: 'Chakra Petch', Arial, sans-serif !important;
+            font-weight: 700;
+            transition: color 0.2s, background 0.2s;
+        }
+        .glass-card button[type="submit"]:hover,
+        .glass-card button[type="submit"]:focus {
+            background: #fedb01 !important;
+            color: #fff !important;
+        }
+        </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Captura - Oferta Especial</title>
+    <link rel="stylesheet" href="estilo-captura.css">
+</head>
+<body>
+    <!-- Cabeçalho: Linha fina verde com cronômetro -->
+    <div style="background: #27ae60; color: #fff; font-size: 1rem; padding: 8px 0; text-align: center; letter-spacing: 1px;">
+        <span>Webinário ao vivo em: <span id="cronometro"></span></span>
+    </div>
+
+    <!-- Box 1: Formulário estilo referência -->
+    <section style="min-height: 75vh; background: url('Fundo1.png') center center/cover no-repeat; display: flex; align-items: center; justify-content: center; padding: 0;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; width: 100%; max-width: 1200px; margin: 0 auto;">
+            <div style="flex: 1 1 400px; min-width: 320px; display: flex; align-items: center; justify-content: center;">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Especialista" style="max-width: 350px; width: 100%; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #fff;">
+            </div>
+            <div style="flex: 1 1 400px; min-width: 320px; padding: 0; margin: 32px 0; max-width: none; background: none; box-shadow: none; border-radius: 0;">
+                <div class="glass-card" style="width: 571px; max-width: 100%;">
+                    <h2 style="color: #fff; font-size: 2rem; font-weight: bold; margin-bottom: 1.5em; text-align: center; line-height: 1.2; font-family: 'Ethnocentric', Arial, sans-serif;">DÊ OS PRIMEIROS PASSOS<br>PARA COMEÇAR DO ZERO A<br><span style="color: #7bb6ff;">CRIAR UMA PRESENÇA<br>DIGITAL SÓLIDA</span></h2>
+                    <form>
+                        <input type="text" name="nome" placeholder="* Nome" required style="width: 100%; padding: 14px; margin-bottom: 16px; border-radius: 6px; border: none; font-size: 1.1rem;">
+                        <input type="email" name="email" placeholder="* E-mail" required style="width: 100%; padding: 14px; margin-bottom: 16px; border-radius: 6px; border: none; font-size: 1.1rem;">
+                        <input type="tel" name="telefone" placeholder="* Telefone" required style="width: 100%; padding: 14px; margin-bottom: 24px; border-radius: 6px; border: none; font-size: 1.1rem;">
+                        <button type="submit" style="width: 100%; border: none; padding: 16px; border-radius: 6px; font-size: 1.2rem; font-weight: bold; cursor: pointer;">Enviar agora mesmo</button>
+                    </form>
+                    <p style="color: #fff; font-size: 0.85rem; margin-top: 16px; text-align: center;">Ao enviar, você concorda com nossos <a href="#" id="btn-termos" style="color: #7bb6ff; text-decoration: underline;">Termos de Uso</a> e <a href="#" id="btn-privacidade" style="color: #7bb6ff; text-decoration: underline;">Política de Privacidade</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Box 2: O que você vai aprender -->
+        <section style="margin: 48px 0 32px 0; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px;">
+            <div style="flex: 1 1 350px; min-width: 300px;">
+                <h2 style="color: #27ae60; font-size: 1.5rem; margin-bottom: 1em;">Veja o que você vai aprender no Notado Pelas Marcas</h2>
+                <div style="background: #f8f8f8; border-radius: 10px; padding: 1.5em 1em; box-shadow: 0 1px 8px #0001;">
+                    <ul style="list-style: disc inside; font-size: 1.1rem; color: #333;">
+                        <li>O segredo para chamar a atenção das marcas, mesmo que você ainda seja pequeno.</li>
+                        <li>Como organizar campanhas, contratos e pagamentos sem estresse.</li>
+                        <li>Estratégias para ser reconhecido e valorizado como parceiro profissional.</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="flex: 1 1 300px; min-width: 250px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <img src="https://via.placeholder.com/250x180?text=Mockup+PC" alt="Mockup PC" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 90%; max-width: 250px;">
+                <img src="https://via.placeholder.com/120x220?text=Mockup+Celular" alt="Mockup Celular" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 60%; max-width: 120px;">
+                <img src="https://via.placeholder.com/180x140?text=Mockup+Tablet" alt="Mockup Tablet" style="border-radius: 8px; box-shadow: 0 1px 8px #0002; width: 80%; max-width: 180px;">
+            </div>
+        </section>
+
+        <!-- Box 3: O que você recebe -->
+        <section style="margin: 32px 0;">
+            <h2 style="color: #27ae60; font-size: 1.4rem; margin-bottom: 1em;">O que você recebe ao participar do evento</h2>
+            <div style="background: #f8f8f8; border-radius: 10px; padding: 1.5em 1em; box-shadow: 0 1px 8px #0001; font-size: 1.1rem; color: #333;">
+                <strong>Guia completo:</strong> Primeiros Passos para Organizar sua Campanha.
+            </div>
+        </section>
+
+        <!-- Box 4: Sobre o especialista -->
+        <section style="margin: 32px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 32px;">
+            <div style="flex: 1 1 400px; min-width: 320px; display: flex; align-items: center; justify-content: center; background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=900&q=80') center center/cover no-repeat; border-radius: 12px 0 0 12px; min-height: 350px;">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Especialista" style="max-width: 320px; width: 100%; border-radius: 12px; box-shadow: 0 2px 12px #0005; background: #222;">
+            </div>
+            <div style="flex: 2 1 500px; min-width: 320px; background: #181a1b; border-radius: 0 12px 12px 0; box-shadow: 0 2px 12px #0002; padding: 40px 32px; color: #fff; min-height: 350px; display: flex; flex-direction: column; justify-content: center;">
+                <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1em; font-family: 'Ethnocentric', Arial, sans-serif;">QUEM É <span style="color: #7bb6ff;">HELÔ</span></h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1em;">Oie, eu sou a Helô! Natural do Rio de Janeiro, formada em Marketing pela UVA e pós-graduada em Influência Digital pelo IBMR. Atuo no Marketing de Influência desde 2019 e sou Head de Influenciadores na EPICdigitais.</p>
+                <p style="font-size: 1.1rem;">Acredito que o Marketing de Influência é inevitável: todos nós sempre fomos influenciadores nas nossas casas, famílias, trabalho, círculos sociais. Já gerenciei mais de 200 creators em campanhas para marcas, com foco em excelência, transparência e criatividade.</p>
+            </div>
+        </section>
+
+        <!-- Box 5: Provas sociais -->
+        <section style="margin: 32px 0;">
+            <h2 style="color: #27ae60; font-size: 1.3rem; margin-bottom: 1em;">
+                 QUE VALE A PENA PARTICIPAR DO EVENTO?</h2>
+            <div style="background: #f8f8f8; border-radius: 10px; padding: 1.5em 1em; box-shadow: 0 1px 8px #0001; font-size: 1.1rem; color: #333;">
+                <p>Provas sociais disponíveis em: <a href="#" style="color: #27ae60; text-decoration: underline;">[Link para depoimentos]</a></p>
+            </div>
+        </section>
+    </div>
+
+    <footer style="background: #111; color: #fff; padding: 32px 0 16px 0; text-align: center; margin-top: 48px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: stretch; width: 100vw; max-width: 100vw; margin: 0; border-bottom: 1px solid #222; padding-bottom: 24px;">
+            <div style="flex: 1 1 0; min-width: 220px; text-align: center; border-right: 1px solid #222; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <strong style="display:block; color:#fff; margin-bottom:4px;">Precisa de ajuda?</strong>
+                <span style="color:#bbb; font-size:1rem;">Envie um e-mail para<br><a href="mailto:ajuda@unsinkable.com.br" style="color:#7bb6ff; text-decoration: underline;">ajuda@unsinkable.com.br</a></span>
+            </div>
+            <div style="flex: 1 1 0; min-width: 220px; text-align: center; border-right: 1px solid #222; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-building"></i></span>
+                <strong style="display:block; color:#fff; margin-bottom:4px;">UNSINKABLE PUBLICIDADE<br>E DESENVOLVIMENTO LTDA</strong>
+                <span style="color:#bbb; font-size:1rem;">CNPJ: 34.880.789/0001-34</span>
+            </div>
+            <div style="flex: 1 1 0; min-width: 220px; text-align: center; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-circle-plus"></i></span>
+                <strong style="display:block; color:#fff; margin-bottom:4px;">Contato</strong>
+                <a href="#" id="btn-termos" style="color: #7bb6ff; text-decoration: underline; display:block;">Termos de Uso</a>
+                <a href="#" id="btn-privacidade" style="color: #7bb6ff; text-decoration: underline; display:block;">Política de Privacidade</a>
+            </div>
+        </div>
+        <div id="modal-termos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; overflow:auto;">
+            <div style="background:#fff; color:#222; max-width:800px; margin:40px auto; border-radius:10px; box-shadow:0 1px 8px #0001; padding:2em; position:relative;">
+                <button onclick="document.getElementById('modal-termos').style.display='none'" style="position:absolute; top:16px; right:16px; background:#27ae60; color:#fff; border:none; border-radius:4px; padding:4px 12px; cursor:pointer;">Fechar</button>
+                <h1 style="color: #27ae60;">Termos de Uso</h1>
+                <p>Bem-vindo à nossa página de captura. Ao se inscrever e utilizar nossos serviços, você concorda com os termos abaixo:</p>
+                <h2>1. Aceitação dos Termos</h2>
+                <p>Ao preencher o formulário e fornecer seus dados, você declara estar de acordo com estes Termos de Uso e com a Política de Privacidade.</p>
+                <h2>2. Cadastro e Responsabilidade</h2>
+                <p>Você se compromete a fornecer informações verdadeiras, completas e atualizadas. O uso indevido dos dados ou informações falsas pode resultar no cancelamento do acesso.</p>
+                <h2>3. Uso dos Dados</h2>
+                <p>Os dados fornecidos serão utilizados exclusivamente para envio de informações sobre o evento, conteúdos relacionados, materiais gratuitos e comunicações de marketing, respeitando a legislação vigente (LGPD).</p>
+                <h2>4. Propriedade Intelectual</h2>
+                <p>Todo o conteúdo disponibilizado nesta página, incluindo textos, imagens e materiais, é protegido por direitos autorais e não pode ser reproduzido sem autorização prévia.</p>
+                <h2>5. Cancelamento e Descadastro</h2>
+                <p>Você pode solicitar o descadastro a qualquer momento, utilizando o link presente nos e-mails enviados ou entrando em contato conosco.</p>
+                <h2>6. Alterações nos Termos</h2>
+                <p>Reservamo-nos o direito de alterar estes Termos de Uso a qualquer momento. As alterações serão comunicadas por e-mail ou publicadas nesta página.</p>
+                <h2>7. Contato</h2>
+                <p>Em caso de dúvidas, entre em contato pelo e-mail <a href="mailto:ajuda@unsinkable.com.br">ajuda@unsinkable.com.br</a>.</p>
+                <p style="margin-top:2em; color:#888; font-size:0.95em;">Última atualização: 28/10/2025</p>
+            </div>
+        </div>
+        <div id="modal-privacidade" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; overflow:auto;">
+            <div style="background:#fff; color:#222; max-width:800px; margin:40px auto; border-radius:10px; box-shadow:0 1px 8px #0001; padding:2em; position:relative;">
+                <button onclick="document.getElementById('modal-privacidade').style.display='none'" style="position:absolute; top:16px; right:16px; background:#27ae60; color:#fff; border:none; border-radius:4px; padding:4px 12px; cursor:pointer;">Fechar</button>
+                <h1 style="color: #27ae60;">Política de Privacidade</h1>
+                <p>Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos seus dados pessoais ao utilizar nossa página de captura.</p>
+                <h2>1. Coleta de Dados</h2>
+                <p>Coletamos apenas os dados necessários para sua inscrição, como nome, e-mail e telefone, fornecidos voluntariamente por você.</p>
+                <h2>2. Uso das Informações</h2>
+                <p>Seus dados serão utilizados para:</p>
+                <ul>
+                    <li>Enviar informações sobre o evento e conteúdos relacionados;</li>
+                    <li>Fornecer materiais gratuitos e comunicações de marketing;</li>
+                    <li>Melhorar nossos serviços e comunicações.</li>
+                </ul>
+                <h2>3. Compartilhamento de Dados</h2>
+                <p>Não compartilhamos seus dados com terceiros, exceto quando necessário para a execução dos serviços contratados ou por obrigação legal.</p>
+                <h2>4. Segurança</h2>
+                <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, divulgação ou destruição.</p>
+                <h2>5. Direitos do Titular</h2>
+                <p>Você pode solicitar a qualquer momento:</p>
+                <ul>
+                    <li>Acesso, correção ou exclusão de seus dados;</li>
+                    <li>Informações sobre o uso dos seus dados;</li>
+                    <li>Revogação do consentimento para uso dos dados.</li>
+                </ul>
+                <h2>6. Cookies</h2>
+                <p>Utilizamos cookies apenas para melhorar sua experiência de navegação. Você pode desativá-los nas configurações do seu navegador.</p>
+                <h2>7. Alterações nesta Política</h2>
+                <p>Esta política pode ser atualizada a qualquer momento. As alterações serão comunicadas por e-mail ou publicadas nesta página.</p>
+                <h2>8. Contato</h2>
+                <p>Para dúvidas ou solicitações, entre em contato pelo e-mail <a href="mailto:ajuda@unsinkable.com.br">ajuda@unsinkable.com.br</a>.</p>
+                <p style="margin-top:2em; color:#888; font-size:0.95em;">Última atualização: 28/10/2025</p>
+            </div>
+        </div>
+        <div style="font-size: 0.95rem; margin-bottom: 8px;">
+            <div style="text-align:center; color:#bbb; font-size:0.95rem;">&copy; 2025 - Todos os direitos reservados</div>
+        </div>
+    </footer>
+
+    <!-- Script do cronômetro -->
+    <script>
+    // Modal Termos e Privacidade
+    document.getElementById('btn-termos').onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('modal-termos').style.display = 'block';
+    };
+    document.getElementById('btn-privacidade').onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('modal-privacidade').style.display = 'block';
+    };
+    // Defina a data e hora do evento (exemplo: 30 de outubro de 2025 às 20:00)
+    var dataEvento = new Date('2025-10-30T20:00:00-03:00').getTime();
+    var cronometro = document.getElementById('cronometro');
+    function atualizarCronometro() {
+        var agora = new Date().getTime();
+        var distancia = dataEvento - agora;
+        if (distancia < 0) {
+            cronometro.innerHTML = 'O evento já começou!';
+            return;
+        }
+        var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+        var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+        cronometro.innerHTML = dias + 'd ' + horas + 'h ' + minutos + 'm ' + segundos + 's';
+    }
+    setInterval(atualizarCronometro, 1000);
+    atualizarCronometro();
+    </script>
+</body>
+</html>
