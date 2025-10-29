@@ -11,6 +11,24 @@
         h3, h4, h5, p {
             font-family: 'Chakra Petch', Arial, sans-serif !important;
         }
+
+        /* Cabeçalho com cronômetro */
+        .top-line {
+            background-color: #27ae60;
+            height: 4px;
+            width: 100%;
+        }
+
+        .timer {
+            background: #27ae60;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Chakra Petch', Arial, sans-serif;
+            letter-spacing: 1px;
+        }
         /* Garantir que o título dentro do card use Chakra Petch */
         .glass-card h2 {
             font-family: 'Chakra Petch', Arial, sans-serif !important;
@@ -142,20 +160,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Captura - Oferta Especial</title>
+    <link rel="icon" type="image/svg+xml" href="Meu Creator\SVG\Logo 01.svg">
     <link rel="stylesheet" href="estilo-captura.css">
 </head>
 <body>
-    <!-- Cabeçalho: Linha fina verde com cronômetro -->
-    <!-- Fonte alterada para Chakra Petch e tamanho aumentado em 20% -->
-    <div style="width: 100vw; margin-left: calc(-50vw + 50%); margin: 0; background: #27ae60; color: #fff; font-size: 1.2rem; padding: 8px 0; text-align: center; letter-spacing: 1px; font-family: 'Chakra Petch', Arial, sans-serif;">
-        <span>Webinário ao vivo em: <span id="cronometro"></span></span>
+    <!-- Cabeçalho com linha verde e cronômetro -->
+    <div class="top-line"></div>
+    <div class="timer">
+        <span id="countdown">Inscrições abertas até: <span id="cronometro-timer">02/11 às 23h59</span></span>
     </div>
 
     <!-- Box 1: Formulário estilo referência -->
     <section style="width: 100vw; margin-left: calc(-50vw + 50%); margin: 0; padding: 0; min-height: 63.75vh; background: url('Fundo2.png') center center/cover no-repeat; display: flex; align-items: center; justify-content: center; border-radius: 0;">
         <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
             <div style="flex: 1 1 400px; min-width: 320px; display: flex; align-items: center; justify-content: center;">
-                <img src="Meu Creator\PNG\Logo 04@2x.png" alt="Especialista" style="max-width: 350px; width: 100%; border-radius: 12px;">
+                <img src="Meu Creator\SVG\Logo 01.svg" alt="Especialista" style="max-width: 350px; width: 100%; border-radius: 12px;">
             </div>
             <div style="flex: 1 1 400px; min-width: 320px; padding: 0; margin: 32px 0; max-width: none; background: none; box-shadow: none; border-radius: 0;">
                 <div class="glass-card" style="width: 571px; max-width: 100%;">
@@ -399,23 +418,47 @@
       };
     }
     // Defina a data e hora do evento (exemplo: 30 de outubro de 2025 às 20:00)
+    // Cronômetro contagem regressiva até 02/11 às 00h
+    function atualizarCronometro() {
+        const targetDate = new Date('November 2, 2025 23:59:59').getTime();
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            document.getElementById('cronometro-timer').textContent = 'OFERTA ENCERRADA';
+            return;
+        }
+
+        const dias = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('cronometro-timer').textContent = 
+            `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(atualizarCronometro, 1000);
+    atualizarCronometro();
+    
+    // Defina a data e hora do evento (exemplo: 30 de outubro de 2025 às 20:00)
     var dataEvento = new Date('2025-10-30T20:00:00-03:00').getTime();
     var cronometro = document.getElementById('cronometro');
-    function atualizarCronometro() {
+    function atualizarCronometroLegacy() {
         var agora = new Date().getTime();
         var distancia = dataEvento - agora;
         if (distancia < 0) {
-            cronometro.innerHTML = 'O evento já começou!';
+            if (cronometro) cronometro.innerHTML = 'O evento já começou!';
             return;
         }
         var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
         var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
         var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-        cronometro.innerHTML = dias + 'd ' + horas + 'h ' + minutos + 'm ' + segundos + 's';
+        if (cronometro) cronometro.innerHTML = dias + 'd ' + horas + 'h ' + minutos + 'm ' + segundos + 's';
     }
-    setInterval(atualizarCronometro, 1000);
-    atualizarCronometro();
+    setInterval(atualizarCronometroLegacy, 1000);
+    atualizarCronometroLegacy();
     
     // Funções do Modal de Imagem
     function openImageModal(imageSrc) {
