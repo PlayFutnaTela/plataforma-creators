@@ -146,7 +146,8 @@
 </head>
 <body>
     <!-- Cabeçalho: Linha fina verde com cronômetro -->
-    <div style="width: 100vw; margin-left: calc(-50vw + 50%); margin: 0; background: #27ae60; color: #fff; font-size: 1rem; padding: 8px 0; text-align: center; letter-spacing: 1px;">
+    <!-- Fonte alterada para Chakra Petch e tamanho aumentado em 20% -->
+    <div style="width: 100vw; margin-left: calc(-50vw + 50%); margin: 0; background: #27ae60; color: #fff; font-size: 1.2rem; padding: 8px 0; text-align: center; letter-spacing: 1px; font-family: 'Chakra Petch', Arial, sans-serif;">
         <span>Webinário ao vivo em: <span id="cronometro"></span></span>
     </div>
 
@@ -265,10 +266,10 @@
 
         <!-- Box 4: Sobre o especialista -->
         <section style="width: 100vw; margin-left: calc(-50vw + 50%); margin: 0; padding: 0; background: url('fundopreto.png') center center/cover no-repeat; color: #fff; min-height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 0;">
-            <div style="max-width: 1200px; margin: 0; padding: 40px 20px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+            <div style="max-width: 1200px; margin: 0; padding: 40px 20px 0 20px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
                 <!-- Container imagem à esquerda -->
                 <div class="specialist-image" style="flex: 0 0 auto; min-width: 280px; margin: 0 auto;">
-                    <img src="ai_image_1761672022629.png" alt="Especialista Helô" style="max-width: 300px; width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); display: block;">
+                    <img src="opc2.2.png" alt="Especialista Helô" style="max-width: 300px; width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); display: block;">
                 </div>
                 <!-- Container texto à direita -->
                 <div class="specialist-text" style="flex: 1 1 400px; min-width: 300px; text-align: left;">
@@ -294,13 +295,13 @@
             <div style="flex: 1 1 0; min-width: 220px; text-align: center; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-circle-plus"></i></span>
                 <strong style="display:block; color:#fff; margin-bottom:4px;">Contato</strong>
-                <a href="#" id="btn-termos" style="color: #fddb00; text-decoration: underline; display:block;">Termos de Uso</a>
-                <a href="#" id="btn-privacidade" style="color: #fddb00; text-decoration: underline; display:block;">Política de Privacidade</a>
+                <a href="#" id="footer-termos" style="color: #fddb00; text-decoration: underline; display:block;">Termos de Uso</a>
+                <a href="#" id="footer-privacidade" style="color: #fddb00; text-decoration: underline; display:block;">Política de Privacidade</a>
             </div>
         </div>
         <div id="modal-termos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; overflow:auto;">
-            <div style="background:#000; color:#fff; max-width:800px; margin:40px auto; border-radius:10px; box-shadow:0 1px 8px #0001; padding:2em; position:relative;">
-                <button onclick="document.getElementById('modal-termos').style.display='none'" style="position:absolute; top:16px; right:16px; background:#fddb00; color:#000; border:none; border-radius:4px; padding:8px 16px; cursor:pointer; font-weight:bold; width:30%;">Fechar</button>
+            <div style="background:#000; color:#fff; max-width:800px; margin:40px auto; border-radius:10px; box-shadow:0 1px 8px #0001; padding:2em; position:relative; border: 1px solid #fddb00;">
+                <button onclick="document.getElementById('modal-termos').style.display='none'" style="position:absolute; top:16px; right:16px; background:#fddb00; color:#000; border:none; border-radius:4px; padding:8px 16px; cursor:pointer; font-weight:bold; width:21%;">Fechar</button>
                 <h1 style="color: #fddb00;">Termos de Uso</h1>
                 <p style="color: #fff;">Bem-vindo à nossa página de captura. Ao se inscrever e utilizar nossos serviços, você concorda com os termos abaixo:</p>
                 <h2 style="color: #fddb00;">1. Aceitação dos Termos</h2>
@@ -321,8 +322,8 @@
             </div>
         </div>
         <div id="modal-privacidade" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; overflow:auto;">
-            <div style="background:#000; color:#fff; max-width:800px; margin:40px auto; border-radius:10px; box-shadow:0 1px 8px #0001; padding:2em; position:relative;">
-                <button onclick="document.getElementById('modal-privacidade').style.display='none'" style="position:absolute; top:16px; right:16px; background:#fddb00; color:#000; border:none; border-radius:4px; padding:8px 16px; cursor:pointer; font-weight:bold; width:30%;">Fechar</button>
+            <div style="background:#000; color:#fff; max-width:800px; margin:40px auto; border-radius:10px; box-shadow:0 1px 8px #0001; padding:2em; position:relative; border: 1px solid #fddb00;">
+                <button onclick="document.getElementById('modal-privacidade').style.display='none'" style="position:absolute; top:16px; right:16px; background:#fddb00; color:#000; border:none; border-radius:4px; padding:8px 16px; cursor:pointer; font-weight:bold; width:21%;">Fechar</button>
                 <h1 style="color: #fddb00;">Política de Privacidade</h1>
                 <p style="color: #fff;">Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos seus dados pessoais ao utilizar nossa página de captura.</p>
                 <h2 style="color: #fddb00;">1. Coleta de Dados</h2>
@@ -378,6 +379,22 @@
         e.preventDefault();
         document.getElementById('modal-privacidade').style.display = 'block';
     };
+    // Adiciona funcionalidade para o link do rodapé 'Termos de Uso'
+    var footerTermos = document.getElementById('footer-termos');
+    if (footerTermos) {
+      footerTermos.onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('modal-termos').style.display = 'block';
+      };
+    }
+    // Adiciona funcionalidade para o link do rodapé 'Política de Privacidade'
+    var footerPrivacidade = document.getElementById('footer-privacidade');
+    if (footerPrivacidade) {
+      footerPrivacidade.onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('modal-privacidade').style.display = 'block';
+      };
+    }
     // Defina a data e hora do evento (exemplo: 30 de outubro de 2025 às 20:00)
     var dataEvento = new Date('2025-10-30T20:00:00-03:00').getTime();
     var cronometro = document.getElementById('cronometro');
