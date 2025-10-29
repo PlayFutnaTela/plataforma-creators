@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Creator - Plataforma para Creators</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             margin: 0;
@@ -12,180 +16,808 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Chakra Petch', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #ffffff;
+            /* Fundo da página usando fundopreto.png */
+            background: url('fundopreto.png') center center/cover no-repeat;
+            background-attachment: fixed;
+            background-color: #000;
         }
 
+        /* Cabeçalho com cronômetro */
         .top-line {
-            background-color: #2ecc71;
+            background-color: #27ae60;
             height: 4px;
             width: 100%;
         }
 
         .timer {
-            background: #f8f9fa;
-            padding: 10px 0;
+            background: #27ae60;
+            padding: 12px 0;
             text-align: center;
             font-weight: bold;
-            color: #e74c3c;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Chakra Petch', Arial, sans-serif;
+            letter-spacing: 1px;
         }
 
-        .promise-section {
-            text-align: center;
-            padding: 3rem 1rem;
-            background: #ffffff;
+        /* Estilos gerais de texto */
+        h1, h2 {
+            font-family: 'Chakra Petch', Arial, sans-serif !important;
         }
 
-        .promise-section h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
+        h3, h4, h5, p {
+            font-family: 'Chakra Petch', Arial, sans-serif !important;
         }
 
-        .promise-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #7f8c8d;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        /* Box 1 - Inscrições */
+        .box-inscricoes {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin: 0;
+            padding: 0;
+            min-height: 63.75vh;
+            background: url('Fundo2.png') center center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0;
         }
 
-        .video-section {
-            padding: 3rem 1rem;
-            background: #ffffff;
-            max-width: 1000px;
+        .box-inscricoes-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 40px 20px;
+            gap: 40px;
         }
 
+        .box-inscricoes-imagem {
+            flex: 1 1 400px;
+            min-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box-inscricoes-imagem img {
+            max-width: 350px;
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .box-inscricoes-form {
+            flex: 1 1 400px;
+            min-width: 320px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .glass-card {
+            width: 571px;
+            min-height: auto;
+            max-width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .glass-card h2 {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5em;
+            text-align: center;
+            line-height: 1.2;
+            font-family: 'Chakra Petch', Arial, sans-serif;
+        }
+
+        .glass-card .aviso-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 1.5em;
+            color: #fddb00;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .glass-card form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .glass-card input {
+            width: 100%;
+            padding: 14px;
+            margin: 0;
+            border-radius: 6px;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Chakra Petch', Arial, sans-serif;
+        }
+
+        .glass-card button {
+            background: #fddb00 !important;
+            color: #000 !important;
+            font-family: 'Chakra Petch', Arial, sans-serif !important;
+            font-weight: 700;
+            padding: 16px;
+            border-radius: 6px;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card button:hover {
+            background: #fddb00 !important;
+            color: #fff !important;
+            transform: scale(1.02);
+        }
+
+        /* Boxes principais com fundo preto */
+        .box-main {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin: 0;
+            padding: 0;
+            background: url('fundopreto.png') center center/cover no-repeat;
+            color: #fff;
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0;
+        }
+
+        .box-main-content {
+            max-width: 1200px;
+            margin: 0;
+            padding: 60px 20px;
+            width: 100%;
+        }
+
+        .box-main h1 {
+            color: #fddb00;
+            font-size: 2.5rem;
+            margin-bottom: 2em;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            text-align: center;
+            font-family: 'Chakra Petch', Arial, sans-serif;
+        }
+
+        .box-main h2 {
+            color: #fddb00;
+            font-size: 1.8rem;
+            margin-bottom: 1.5em;
+            font-family: 'Chakra Petch', Arial, sans-serif;
+        }
+
+        .box-main p {
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1em;
+        }
+
+        /* Card de aprendizado */
+        .card-learn {
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-learn:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-learn:hover > div {
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .card-content {
+            background: #e3e3e3;
+            border-radius: 12px;
+            padding: 36px 20px 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            min-height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card-icon {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: #fddb00;
+            border: 10px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .card-icon i {
+            font-size: 28px;
+            color: #000;
+        }
+
+        /* Box resultados com grid de antes e depois */
+        .resultados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .resultado-item {
+            text-align: center;
+        }
+
+        .resultado-imagem {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #333;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .resultado-titulo {
+            color: #fddb00;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Box tópicos */
+        .topicos-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 40px;
+            border-radius: 12px;
+            border-left: 4px solid #fddb00;
+            margin: 30px 0;
+        }
+
+        .topicos-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .topicos-box li {
+            color: #fff;
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .topicos-box li:before {
+            content: "●";
+            color: #fddb00;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Mockup placeholder */
+        .mockup-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+        /* Box inclusos com layout imagem + descrição */
+        .inclusos-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(253, 219, 0, 0.2);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .inclusos-imagem {
+            flex: 0 0 200px;
+            aspect-ratio: 16/9;
+            background: #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 2rem;
+        }
+
+        .inclusos-text h3 {
+            color: #fddb00;
+            font-size: 1.4rem;
+            margin-bottom: 1em;
+        }
+
+        .inclusos-text p {
+            color: #fff;
+            margin: 0;
+        }
+
+        .inclusos-label {
+            display: inline-block;
+            background: #fddb00;
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Copy de impacto */
+        .copy-impacto {
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            margin: 40px 0;
+            line-height: 1.6;
+        }
+
+        .copy-impacto-yellow {
+            color: #fddb00;
+        }
+
+        /* Video container */
         .video-container {
             position: relative;
             width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
+            max-width: 800px;
+            margin: 40px auto;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 2rem;
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .cta-section {
-            background: #f8f9fa;
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-
+        /* Botões CTA */
         .cta-button {
-            background: #2ecc71;
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
+            background: #fddb00;
+            color: #000;
+            padding: 16px 40px;
+            font-size: 1.1rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: 20px;
             font-weight: bold;
+            font-family: 'Chakra Petch', Arial, sans-serif;
         }
 
         .cta-button:hover {
-            background: #27ae60;
-            transform: scale(1.05);
+            background: #fddb00;
+            color: #fff;
+            transform: scale(1.02);
         }
 
-        .guarantee-section {
-            padding: 2rem 1rem;
-            background: #ffffff;
+        .cta-center {
             text-align: center;
         }
 
-        .guarantee {
-            display: inline-block;
-            background: #2ecc71;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 10px;
+        .cta-subtext {
+            color: #bbb;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Para quem é / Não é */
+        .quem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .quem-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .quem-section h3 {
+            color: #fddb00;
+            font-size: 1.3rem;
+            margin-bottom: 1.5em;
+            border-bottom: 2px solid #fddb00;
+            padding-bottom: 10px;
+        }
+
+        .quem-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quem-section li {
+            color: #fff;
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .quem-section li:before {
+            content: "✓";
+            color: #fddb00;
+            position: absolute;
+            left: 0;
             font-weight: bold;
         }
 
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem;
+        .quem-section.nao-eh li:before {
+            content: "✕";
+            color: #e74c3c;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .promise-section h1 {
-                font-size: 2rem;
+            .box-main h1 {
+                font-size: 1.8rem;
+            }
+
+            .glass-card h2 {
+                font-size: 1.4rem;
+            }
+
+            .inclusos-item {
+                flex-direction: column;
+            }
+
+            .inclusos-imagem {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+
+            .copy-impacto {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Cabeçalho com linha verde e cronômetro -->
     <div class="top-line"></div>
     <div class="timer">
-        <span id="countdown">Oferta válida até 16/10 às 23h59</span>
+        <span id="countdown">Inscrições abertas até: <span id="cronometro-timer">02/11 às 23h59</span></span>
     </div>
 
-    <section class="promise-section">
-        <h1>INSCRIÇÕES PARA O MEU CREATOR – A plataforma que ajuda creators a serem notados por marcas, com gestão completa de campanhas, contratos e pagamentos.</h1>
-        <p>Se você quer ser notado pelas marcas, receber pagamentos no prazo e focar em criar conteúdo, essa é a sua chance. Inscreva-se gratuitamente!</p>
-    </section>
-
-    <section class="video-section">
-        <h2>Assista ao Vídeo de Vendas</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/seu-video-de-venda" frameborder="0" allowfullscreen></iframe>
+    <!-- BOX 1: Inscrições -->
+    <section class="box-inscricoes">
+        <div class="box-inscricoes-content">
+            <div class="box-inscricoes-imagem">
+                <img src="https://via.placeholder.com/350x350?text=Creator+Com+Laptop" alt="Creator">
+            </div>
+            <div class="box-inscricoes-form">
+                <div class="glass-card">
+                    <h2>INSCRIÇÕES PARA O MEU CREATOR<br><span style="color: #fddb00;">A plataforma que ajuda creators a serem notados por marcas, com gestão completa de campanhas, contratos e pagamentos.</span></h2>
+                    <div class="aviso-box">
+                        ⏱️ Inscrições abertas até 02/11 às 23h59
+                    </div>
+                    <form>
+                        <input type="text" name="nome" placeholder="* Nome" required>
+                        <input type="email" name="email" placeholder="* E-mail" required>
+                        <input type="tel" name="telefone" placeholder="* Telefone" required>
+                        <button type="submit">INSCRIÇÃO GRATUITA AGORA</button>
+                    </form>
+                    <p style="color: #fff; font-size: 0.85rem; margin-top: 16px; text-align: center;">Ao enviar, você concorda com nossos <a href="#" id="btn-termos" style="color: #fddb00; text-decoration: underline;">Termos de Uso</a> e <a href="#" id="btn-privacidade" style="color: #fddb00; text-decoration: underline;">Política de Privacidade</a>.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <button class="cta-button">INSCRIÇÃO GRATUITA AGORA</button>
-    </section>
+    <!-- BOX 2: Resultados dos Creators -->
+    <section class="box-main">
+        <div class="box-main-content">
+            <h1>Resultados dos Creators</h1>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2em;">Veja como creators profissionalizaram suas campanhas e aumentaram visibilidade com marcas.</p>
 
-    <section class="guarantee-section">
-        <div class="guarantee">
-            Garantia Incondicional
+            <div class="resultados-grid">
+                <div class="resultado-item">
+                    <div class="resultado-imagem">📸 Antes</div>
+                    <div class="resultado-titulo">Sem Organização</div>
+                    <p style="color: #bbb;">Campanhas desorganizadas, sem contratos claros</p>
+                </div>
+                <div class="resultado-item">
+                    <div class="resultado-imagem">✨ Depois</div>
+                    <div class="resultado-titulo">Profissional</div>
+                    <p style="color: #bbb;">Campanhas organizadas, contratos integrados</p>
+                </div>
+                <div class="resultado-item">
+                    <div class="resultado-imagem">💰 Antes</div>
+                    <div class="resultado-titulo">Pagamentos Atrasados</div>
+                    <p style="color: #bbb;">Sem previsibilidade de recebimento</p>
+                </div>
+                <div class="resultado-item">
+                    <div class="resultado-imagem">🏆 Depois</div>
+                    <div class="resultado-titulo">Pagamentos Seguros</div>
+                    <p style="color: #bbb;">Recebe após cumprir as etapas</p>
+                </div>
+            </div>
+
+            <div class="topicos-box">
+                <ul>
+                    <li>Como ser notado por marcas mesmo que você esteja começando</li>
+                    <li>Gestão fácil de campanhas, contratos e pagamentos</li>
+                    <li>Estratégias para aumentar credibilidade e reconhecimento profissional</li>
+                </ul>
+            </div>
+
+            <p style="text-align: center; margin-top: 2em; font-size: 0.95rem; color: #bbb;">
+                📱 Disponível em: PC, Tablet e Celular
+            </p>
         </div>
     </section>
 
-    <footer>
-        <p>© 2025 Meu Creator. Todos os direitos reservados.</p>
-        <p>Contato: contato@meucreator.com.br</p>
+    <!-- BOX 3: O que está incluso -->
+    <section class="box-main">
+        <div class="box-main-content">
+            <h1>O que está incluso no Meu Creator</h1>
+
+            <div class="inclusos-item">
+                <div class="inclusos-imagem">📊</div>
+                <div class="inclusos-text">
+                    <h3>Gestão de Campanhas</h3>
+                    <p>Todas as campanhas em um só lugar, com contratos e aprovações integrados. Nunca mais perca uma oportunidade ou prazo.</p>
+                    <div class="inclusos-label">INCLUSO NA PLATAFORMA</div>
+                </div>
+            </div>
+
+            <div class="inclusos-item">
+                <div class="inclusos-imagem">📈</div>
+                <div class="inclusos-text">
+                    <h3>Envio de Métricas e Entregas</h3>
+                    <p>Controle total do que precisa ser entregue para cada marca. Acompanhe o progresso em tempo real e demonstre profissionalismo.</p>
+                    <div class="inclusos-label">INCLUSO NA PLATAFORMA</div>
+                </div>
+            </div>
+
+            <div class="inclusos-item">
+                <div class="inclusos-imagem">💳</div>
+                <div class="inclusos-text">
+                    <h3>Pagamentos Facilitados</h3>
+                    <p>Receba de forma segura e garantida após cumprir todas as etapas acordadas com o cliente. Sem estresse, sem atrasos.</p>
+                    <div class="inclusos-label">INCLUSO NA PLATAFORMA</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOX 4: Copy de Impacto -->
+    <section class="box-main">
+        <div class="box-main-content">
+            <div class="copy-impacto">
+                Se você quer ser notado pelas marcas, receber pagamentos no prazo e focar em criar conteúdo, <span class="copy-impacto-yellow">essa é a sua chance</span>. Inscreva-se gratuitamente!
+            </div>
+            <div class="cta-center">
+                <button class="cta-button">QUERO ME INSCREVER AGORA!</button>
+                <div class="cta-subtext">Clique Acima e Se Inscreva</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOX 5: Provas Sociais - Vídeo Metralhadora -->
+    <section class="box-main">
+        <div class="box-main-content">
+            <h1>Quem Faz, Aprova e Recomenda</h1>
+            <p style="text-align: center; margin-bottom: 2em;">Veja o que os creators dizem sobre a plataforma Meu Creator</p>
+            <div class="video-container">
+                <span style="color: #666;">🎥 Vídeo de Provas Sociais</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOX 6: Para Quem é / Não é -->
+    <section class="box-main">
+        <div class="box-main-content">
+            <h1>O Meu Creator é Para Você?</h1>
+            <div class="quem-grid">
+                <div class="quem-section">
+                    <h3>✓ O MEU CREATOR É PARA:</h3>
+                    <ul>
+                        <li>Creators, influenciadores e produtores de conteúdo que desejam crescer no digital</li>
+                        <li>Quem quer ser notado por marcas e receber pagamentos seguros</li>
+                        <li>Para quem deseja organizar campanhas, contratos e métricas sem perder tempo</li>
+                        <li>Profissionais que querem focar 100% na criação de conteúdo</li>
+                    </ul>
+                </div>
+                <div class="quem-section nao-eh">
+                    <h3 style="color: #e74c3c; border-bottom-color: #e74c3c;">✕ O MEU CREATOR NÃO É PARA:</h3>
+                    <ul>
+                        <li>Quem não quer profissionalizar sua carreira de creator</li>
+                        <li>Quem aceita trabalhar sem organização e sem previsibilidade</li>
+                        <li>Quem não deseja ser reconhecido por marcas e parceiros</li>
+                        <li>Quem prefere continuar trabalhando de forma desorganizada</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOX 7: Urgência Final -->
+    <section class="box-main">
+        <div class="box-main-content">
+            <div class="copy-impacto">
+                ⏰ Oferta válida até <span class="copy-impacto-yellow">02/11 às 23h59</span>. Garanta sua inscrição gratuita agora e comece a profissionalizar sua carreira como creator!
+            </div>
+            <div class="cta-center">
+                <button class="cta-button">QUERO ME INSCREVER AGORA!</button>
+                <div class="cta-subtext">Clique Acima e Se Inscreva</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOX 8: RODAPÉ (Copiado da página-captura.html) -->
+    <footer style="width: 100vw; margin-left: calc(-50vw + 50%); margin: 0; background: url('fundopreto.png') center center/cover no-repeat; color: #fff; padding: 32px 0 16px 0; text-align: center;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: stretch; max-width: 100%; margin: 0; border-bottom: 1px solid #222; padding-bottom: 24px; padding-left: 20px; padding-right: 20px;">
+            <div style="flex: 1 1 0; min-width: 220px; text-align: center; border-right: 1px solid #222; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <!-- Ícone alterado para telefone -->
+                <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-phone"></i></span>
+                <strong style="display:block; color:#fff; margin-bottom:4px;">Precisa de ajuda?</strong>
+                <!-- Link alterado para redirecionar para WhatsApp -->
+                <span style="color:#bbb; font-size:1rem;">Fale conosco<br><a href="https://go-whats.com/NotadoPelasMarcas" target="_blank" style="color:#fddb00; text-decoration: underline;">através do Whatsapp</a></span>
+            </div>
+            <div style="flex: 1 1 0; min-width: 220px; text-align: center; border-right: 1px solid #222; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-building"></i></span>
+                <strong style="display:block; color:#fff; margin-bottom:4px;">UNSINKABLE PUBLICIDADE<br>E DESENVOLVIMENTO LTDA</strong>
+                <span style="color:#bbb; font-size:1rem;">CNPJ: 34.880.789/0001-34</span>
+            </div>
+            <div style="flex: 1 1 0; min-width: 220px; text-align: center; padding: 0 16px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <!-- Ícone alterado para livro -->
+                <span style="display:inline-block; background:#222; border-radius:50%; width:48px; height:48px; line-height:48px; color:#fff; font-size:2rem; margin-bottom:8px;"><i class="fa-solid fa-book"></i></span>
+                <strong style="display:block; color:#fff; margin-bottom:4px;">Termos</strong>
+                <a href="#" id="footer-termos" style="color: #fddb00; text-decoration: underline; display:block;">Termos de Uso</a>
+                <a href="#" id="footer-privacidade" style="color: #fddb00; text-decoration: underline; display:block;">Política de Privacidade</a>
+            </div>
+        </div>
+        <div id="modal-termos" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; overflow:auto;">
+            <div style="background:#000; color:#fff; max-width:800px; margin:40px auto; border-radius:10px; box-shadow:0 1px 8px #0001; padding:2em; position:relative; border: 1px solid #fddb00;">
+                <button onclick="document.getElementById('modal-termos').style.display='none'" style="position:absolute; top:16px; right:16px; background:#fddb00; color:#000; border:none; border-radius:4px; padding:8px 16px; cursor:pointer; font-weight:bold; width:21%;">Fechar</button>
+                <h1 style="color: #fddb00;">Termos de Uso</h1>
+                <p style="color: #fff;">Bem-vindo à nossa página de vendas. Ao se inscrever e utilizar nossos serviços, você concorda com os termos abaixo:</p>
+                <h2 style="color: #fddb00;">1. Aceitação dos Termos</h2>
+                <p style="color: #fff;">Ao preencher o formulário e fornecer seus dados, você declara estar de acordo com estes Termos de Uso e com a Política de Privacidade.</p>
+                <h2 style="color: #fddb00;">2. Cadastro e Responsabilidade</h2>
+                <p style="color: #fff;">Você se compromete a fornecer informações verdadeiras, completas e atualizadas. O uso indevido dos dados ou informações falsas pode resultar no cancelamento do acesso.</p>
+                <h2 style="color: #fddb00;">3. Uso dos Dados</h2>
+                <p style="color: #fff;">Os dados fornecidos serão utilizados exclusivamente para envio de informações sobre a plataforma, conteúdos relacionados, materiais gratuitos e comunicações de marketing, respeitando a legislação vigente (LGPD).</p>
+                <h2 style="color: #fddb00;">4. Propriedade Intelectual</h2>
+                <p style="color: #fff;">Todo o conteúdo disponibilizado nesta página, incluindo textos, imagens e materiais, é protegido por direitos autorais e não pode ser reproduzido sem autorização prévia.</p>
+                <h2 style="color: #fddb00;">5. Cancelamento e Descadastro</h2>
+                <p style="color: #fff;">Você pode solicitar o descadastro a qualquer momento, utilizando o link presente nos e-mails enviados ou entrando em contato conosco.</p>
+                <h2 style="color: #fddb00;">6. Alterações nos Termos</h2>
+                <p style="color: #fff;">Reservamo-nos o direito de alterar estes Termos de Uso a qualquer momento. As alterações serão comunicadas por e-mail ou publicadas nesta página.</p>
+                <h2 style="color: #fddb00;">7. Contato</h2>
+                <p style="color: #fff;">Em caso de dúvidas, entre em contato pelo e-mail <a href="mailto:contato@meucreator.com.br" style="color:#fddb00; text-decoration: underline;">contato@meucreator.com.br</a>.</p>
+                <p style="margin-top:2em; color:#bbb; font-size:0.95em;">Última atualização: 28/10/2025</p>
+            </div>
+        </div>
+        <div id="modal-privacidade" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; overflow:auto;">
+            <div style="background:#000; color:#fff; max-width:800px; margin:40px auto; border-radius:10px; box-shadow:0 1px 8px #0001; padding:2em; position:relative; border: 1px solid #fddb00;">
+                <button onclick="document.getElementById('modal-privacidade').style.display='none'" style="position:absolute; top:16px; right:16px; background:#fddb00; color:#000; border:none; border-radius:4px; padding:8px 16px; cursor:pointer; font-weight:bold; width:21%;">Fechar</button>
+                <h1 style="color: #fddb00;">Política de Privacidade</h1>
+                <p style="color: #fff;">Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos seus dados pessoais ao utilizar nossa página de vendas.</p>
+                <h2 style="color: #fddb00;">1. Coleta de Dados</h2>
+                <p style="color: #fff;">Coletamos apenas os dados necessários para sua inscrição, como nome, e-mail e telefone, fornecidos voluntariamente por você.</p>
+                <h2 style="color: #fddb00;">2. Uso das Informações</h2>
+                <p style="color: #fff;">Seus dados serão utilizados para:<ul style="color: #fff;"><li>Enviar informações sobre a plataforma e conteúdos relacionados;</li><li>Fornecer materiais gratuitos e comunicações de marketing;</li><li>Melhorar nossos serviços e comunicações.</li></ul></p>
+                <h2 style="color: #fddb00;">3. Compartilhamento de Dados</h2>
+                <p style="color: #fff;">Não compartilhamos seus dados com terceiros, exceto quando necessário para a execução dos serviços contratados ou por obrigação legal.</p>
+                <h2 style="color: #fddb00;">4. Segurança</h2>
+                <p style="color: #fff;">Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, divulgação ou destruição.</p>
+                <h2 style="color: #fddb00;">5. Direitos do Titular</h2>
+                <p style="color: #fff;">Você pode solicitar a qualquer momento acesso, correção ou exclusão de seus dados; informações sobre o uso dos seus dados; e revogação do consentimento para uso dos dados.</p>
+                <h2 style="color: #fddb00;">6. Contato</h2>
+                <p style="color: #fff;">Para dúvidas ou solicitações, entre em contato pelo e-mail <a href="mailto:contato@meucreator.com.br" style="color:#fddb00; text-decoration: underline;">contato@meucreator.com.br</a>.</p>
+                <p style="margin-top:2em; color:#bbb; font-size:0.95em;">Última atualização: 28/10/2025</p>
+            </div>
+        </div>
+        <div style="font-size: 0.95rem; margin-bottom: 8px;">
+            <div style="text-align:center; color:#bbb; font-size:0.95rem;">&copy; 2025 - Todos os direitos reservados</div>
+        </div>
     </footer>
 
     <script>
-        // Script para o temporizador (funcionalidade de contagem regressiva)
-        function updateCountdown() {
-            const targetDate = new Date('October 17, 2023 00:00:00').getTime(); // Data-alvo (domingo às 00h)
+        // Cronômetro contagem regressiva até 02/11 às 00h
+        function atualizarCronometro() {
+            const targetDate = new Date('November 2, 2025 23:59:59').getTime();
             const now = new Date().getTime();
             const distance = targetDate - now;
 
-            if (distance > 0) {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('countdown').innerHTML = 
-                    `Contagem regressiva: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-            } else {
-                document.getElementById('countdown').innerHTML = 'OFERTA ENCERRADA';
+            if (distance < 0) {
+                document.getElementById('cronometro-timer').textContent = 'OFERTA ENCERRADA';
+                return;
             }
+
+            const dias = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('cronometro-timer').textContent = 
+                `${dias}d ${horas}h ${minutos}m ${segundos}s`;
         }
 
-        // Atualiza o temporizador a cada segundo
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Executa imediatamente ao carregar a página
+        setInterval(atualizarCronometro, 1000);
+        atualizarCronometro();
+
+        // Modal Termos e Privacidade - Links do formulário
+        document.getElementById('btn-termos').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('modal-termos').style.display = 'block';
+        };
+        document.getElementById('btn-privacidade').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('modal-privacidade').style.display = 'block';
+        };
+
+        // Modal Termos e Privacidade - Links do rodapé
+        var footerTermos = document.getElementById('footer-termos');
+        if (footerTermos) {
+            footerTermos.onclick = function(e) {
+                e.preventDefault();
+                document.getElementById('modal-termos').style.display = 'block';
+            };
+        }
+        var footerPrivacidade = document.getElementById('footer-privacidade');
+        if (footerPrivacidade) {
+            footerPrivacidade.onclick = function(e) {
+                e.preventDefault();
+                document.getElementById('modal-privacidade').style.display = 'block';
+            };
+        }
     </script>
 </body>
 </html>
