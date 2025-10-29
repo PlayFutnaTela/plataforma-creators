@@ -92,6 +92,13 @@
             border-radius: 12px;
         }
 
+        /* Desktop - Aumentar tamanho da imagem */
+        @media (min-width: 1024px) {
+            .box-inscricoes-imagem img {
+                max-width: 700px;
+            }
+        }
+
         .box-inscricoes-form {
             flex: 1 1 400px;
             min-width: 320px;
@@ -270,10 +277,16 @@
         /* Box resultados com grid de antes e depois */
         .resultados-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin-top: 40px;
             margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .resultados-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .resultado-item {
@@ -291,6 +304,13 @@
             color: #999;
             font-size: 3rem;
             margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .resultado-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .resultado-titulo {
@@ -538,7 +558,7 @@
     <section class="box-inscricoes">
         <div class="box-inscricoes-content">
             <div class="box-inscricoes-imagem">
-                <img src="https://via.placeholder.com/350x350?text=Creator+Com+Laptop" alt="Creator">
+                <img src="mockuplaptopsmartphone1.png" alt="Creator">
             </div>
             <div class="box-inscricoes-form">
                 <div class="glass-card">
@@ -547,9 +567,6 @@
                         ⏱️ Inscrições abertas até 02/11 às 23h59
                     </div>
                     <form>
-                        <input type="text" name="nome" placeholder="* Nome" required>
-                        <input type="email" name="email" placeholder="* E-mail" required>
-                        <input type="tel" name="telefone" placeholder="* Telefone" required>
                         <button type="submit">INSCRIÇÃO GRATUITA AGORA</button>
                     </form>
                     <p style="color: #fff; font-size: 0.85rem; margin-top: 16px; text-align: center;">Ao enviar, você concorda com nossos <a href="#" id="btn-termos" style="color: #fddb00; text-decoration: underline;">Termos de Uso</a> e <a href="#" id="btn-privacidade" style="color: #fddb00; text-decoration: underline;">Política de Privacidade</a>.</p>
@@ -566,22 +583,22 @@
 
             <div class="resultados-grid">
                 <div class="resultado-item">
-                    <div class="resultado-imagem">📸 Antes</div>
+                    <div class="resultado-imagem"><img src="inf1.png" alt="Sem Organização"></div>
                     <div class="resultado-titulo">Sem Organização</div>
                     <p style="color: #bbb;">Campanhas desorganizadas, sem contratos claros</p>
                 </div>
                 <div class="resultado-item">
-                    <div class="resultado-imagem">✨ Depois</div>
+                    <div class="resultado-imagem"><img src="inf2.png" alt="Profissional"></div>
                     <div class="resultado-titulo">Profissional</div>
                     <p style="color: #bbb;">Campanhas organizadas, contratos integrados</p>
                 </div>
                 <div class="resultado-item">
-                    <div class="resultado-imagem">💰 Antes</div>
+                    <div class="resultado-imagem"><img src="inf3.png" alt="Pagamentos Atrasados"></div>
                     <div class="resultado-titulo">Pagamentos Atrasados</div>
                     <p style="color: #bbb;">Sem previsibilidade de recebimento</p>
                 </div>
                 <div class="resultado-item">
-                    <div class="resultado-imagem">🏆 Depois</div>
+                    <div class="resultado-imagem"><img src="inf4.png" alt="Pagamentos Seguros"></div>
                     <div class="resultado-titulo">Pagamentos Seguros</div>
                     <p style="color: #bbb;">Recebe após cumprir as etapas</p>
                 </div>
