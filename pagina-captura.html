@@ -404,7 +404,9 @@
     <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95); z-index: 10000; overflow: auto; padding: 20px;">
         <div style="position: relative; max-width: 90%; max-height: 90vh; margin: 5vh auto; display: flex; align-items: center; justify-content: center;">
             <button onclick="closeImageModal()" style="position: absolute; top: -50px; right: 0; background: #fddb00; color: #000; border: none; border-radius: 4px; padding: 8px 16px; font-weight: bold; cursor: pointer; font-size: 1rem;">✕ Fechar</button>
+            <button id="modalPrevBtn" style="position: absolute; left: -30px; top: 50%; transform: translateY(-50%); background: #fddb00; color: #000; border: none; border-radius: 22px; width: 22px; height: 22px; font-size: 1.1rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; padding: 0;">&#8592;</button>
             <img id="modalImage" src="" alt="Imagem em tamanho maior" style="max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+            <button id="modalNextBtn" style="position: absolute; right: -30px; top: 50%; transform: translateY(-50%); background: #fddb00; color: #000; border: none; border-radius: 22px; width: 22px; height: 22px; font-size: 1.1rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; padding: 0;">&#8594;</button>
         </div>
     </div>
 
@@ -479,13 +481,72 @@
     atualizarCronometroLegacy();
     
     // Funções do Modal de Imagem
+
+    // --- Modal de Imagem com navegação ---
+    const modalImageList = [
+        "https://i.postimg.cc/8C92c8hx/sprint1.jpg",
+        "https://i.postimg.cc/VNpxvyqy/sprint2.jpg",
+        "https://i.postimg.cc/k5z0GrQd/sprint3.jpg",
+        "https://i.postimg.cc/W4CBzRGd/sprint4.jpg"
+    ];
+    let modalCurrentIndex = 0;
+
     function openImageModal(imageSrc) {
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
-        modalImage.src = imageSrc;
+        // Descobrir índice da imagem
+        let idx = modalImageList.indexOf(imageSrc);
+        if (idx === -1) idx = 0;
+        modalCurrentIndex = idx;
+        modalImage.src = modalImageList[modalCurrentIndex];
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        updateModalNavButtons();
     }
+
+    function closeImageModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function modalShowPrev() {
+        modalCurrentIndex = (modalCurrentIndex - 1 + modalImageList.length) % modalImageList.length;
+        document.getElementById('modalImage').src = modalImageList[modalCurrentIndex];
+        updateModalNavButtons();
+    }
+    function modalShowNext() {
+        modalCurrentIndex = (modalCurrentIndex + 1) % modalImageList.length;
+        document.getElementById('modalImage').src = modalImageList[modalCurrentIndex];
+        updateModalNavButtons();
+    }
+    function updateModalNavButtons() {
+        // Se quiser esconder botões nas extremidades, descomente abaixo:
+        // document.getElementById('modalPrevBtn').style.visibility = (modalCurrentIndex === 0) ? 'hidden' : 'visible';
+        // document.getElementById('modalNextBtn').style.visibility = (modalCurrentIndex === modalImageList.length-1) ? 'hidden' : 'visible';
+    }
+
+    // Eventos dos botões do modal
+    window.addEventListener('DOMContentLoaded', function() {
+        const prevBtn = document.getElementById('modalPrevBtn');
+        const nextBtn = document.getElementById('modalNextBtn');
+        if (prevBtn && nextBtn) {
+            prevBtn.onclick = function(e) { e.stopPropagation(); modalShowPrev(); };
+            nextBtn.onclick = function(e) { e.stopPropagation(); modalShowNext(); };
+        }
+    });
+
+    // Navegação por teclado no modal
+    document.addEventListener('keydown', function(e) {
+        const modal = document.getElementById('imageModal');
+        if (modal.style.display !== 'none') {
+            if (e.key === 'ArrowLeft') {
+                modalShowPrev();
+            } else if (e.key === 'ArrowRight') {
+                modalShowNext();
+            }
+        }
+    });
     
     function closeImageModal() {
         const modal = document.getElementById('imageModal');
